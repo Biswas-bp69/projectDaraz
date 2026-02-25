@@ -6,15 +6,15 @@ function buttonClick() {
 
 
 
-// function greetUser() {
-//   let itemName = document.getElementById("username").value;
+function greetUser() {
+  let itemName = document.getElementById("username").value;
 
-//   if (itemName === "") {
-//     alert("Please enter items");
-//   } else {
-//     alert(itemName + " is search successfully.");
-//   }
-// }
+  if (itemName === "") {
+    alert("Please enter items");
+  } else {
+    alert(itemName + " is search successfully.");
+  }
+}
 
 function showMessage() {
   let msg = document.getElementById("message");
