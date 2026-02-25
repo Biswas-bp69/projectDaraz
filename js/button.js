@@ -4,17 +4,15 @@ function buttonClick() {
   alert("Item Successfully Add.")
 }
 
-
-
-function greetUser() {
-  let itemName = document.getElementById("username").value;
-
-  if (itemName === "") {
-    alert("Please enter items");
+let itemName = document.getElementById("searchItem").value;
+function searchClick() {
+  if (itemName = "") {
+    alert("Enter item name or other.");
   } else {
-    alert(itemName + " is search successfully.");
-  }
-}
+    alert(itemName + "search successfully.")
+  };
+};
+
 
 function showMessage() {
   let msg = document.getElementById("message");
