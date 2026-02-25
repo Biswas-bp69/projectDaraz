@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <title>Document</title>
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/chatbot.css">
+    <link rel="stylesheet" href="/css/media.css">
+</head>
+
+<body>
+    <!-- ================= HEADER PART ================= -->
+    <header class="container-fluid">
+        <div class="row p-2">
+            <div class="col-lg-2 text-center text-sm-left">
+                <img src="./image/logo.png" alt="" class="logo">
+            </div>
+            <div class="col-lg-4 d-flex align-items-center gap-2 ps-0">
+                <details class="roleMenu d-block d-lg-none">
+                    <summary class="dotBtn"><i class="fa-solid fa-bars text-white"></i></summary>
+                    <div class="dropdown">
+                        <a href="#flashSale">Flash Sale</a>
+                        <a href="#Categories"> Categories</a>
+                        <a href="#forYou"> For You</a>
+                        <a class="btn text-dark text-lg-light " data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Contact Us</a>
+                        <a class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#registerModal">
+                            Register </a>
+                    </div>
+                </details>
+                <div class="searchArea">
+                    <input type="text" id="username" placeholder="Search something">
+                    <span onclick="greetUser()"><i class=" fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5 d-flex align-items-center">
+                <nav>
+                    <ul>
+                        <li class="mblNavBtn"><a href="#">Home</a></li>
+                        <li class="mblNavBtn"><a href="#flashSale">Flash Sale</a></li>
+                        <li class="mblNavBtn"><a href="#Categories"> Categories</a></li>
+                        <li class="mblNavBtn"><a href="#forYou"> For You</a></li>
+                        <li class="mblNavBtn"><a class="btn text-light " data-bs-toggle="modal"
+                                data-bs-target="#contactModal">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li class="mblNavBtn"> <a class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                Register
+                            </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= REGISTER MODAL ================= -->
+    <form id="myForm" action="index.html">
+        <div class="modal fade" id="registerModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header text-center align-items-center justify-content-center">
+                        <h5>Register</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <label for="name" class="ps-2">Name:</label>
+                        <input class="form-control mb-2" placeholder="Full Name" id="name"><br>
+                        <label for="email" class="ps-2">Email:</label>
+                        <input class="form-control mb-2" placeholder="Email" id="email"><br>
+                        <label for="password" class="ps-2">Password:</label>
+                        <input class="form-control mb-2" placeholder="Password" id="password"><br>
+                        <label for="c-password" class="ps-2">Confirm Password:</label>
+                        <input class="form-control mb-2" placeholder="Password" id="c-password"><br>
+
+
+                        <!-- small login link -->
+                        <p class="text-center mt-3 mb-0">
+                            <small>
+                                Already have an account? &ensp;
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">
+                                    Login
+                                </a>
+                            </small>
+                        </p>
+
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- ================= LOGIN MODAL ================= -->
+    <form action="index.html" id="loginPage">
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input class="form-control mb-2" placeholder="User Name" id="login-name">
+                        <p class="text-center m-0">or</p>
+                        <input class="form-control mb-2" placeholder="Email" id="login-email"><br>
+                        <input class="form-control mb-2" placeholder="Password" id="login-password"><br>
+                        <!-- small login link -->
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModel"
+                            data-bs-dismiss="modal">
+                            Forgot Password
+                        </a>
+                        <p class="text-center mt-3 mb-0">
+                            <small>
+                                Don’t have account?
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal"
+                                    data-bs-dismiss="modal">
+                                    Register
+                                </a>
+                            </small>
+                        </p>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- ========= forgot password model ============  -->
+    <form action="index.html" id="loginPage">
+        <div class="modal fade" id="forgotPasswordModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Forgot password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input class="form-control mb-2" placeholder="Contact nbr" id="login-name">
+                        <p class="text-center m-0">or</p>
+                        <input class="form-control mb-2" placeholder="Email" id="login-email"><br>
+                        <input class="form-control mb-2" placeholder="Enter OTP " id="login-password"><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Forgot password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- ================= contact MODAL ================= -->
+    <form id="contactForm" action="index.html">
+        <div class="modal fade" id="contactModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Contact Us</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <label>Name</label>
+                        <input type="text" class="form-control mb-2" id="cname">
+
+                        <label>Email</label>
+                        <input type="email" class="form-control mb-2" id="cemail">
+
+                        <label>Subject</label>
+                        <input type="text" class="form-control mb-2" id="csubject">
+
+                        <label>Message</label>
+                        <textarea class="form-control mb-2" rows="4" id="cmsg"></textarea>
+
+                        <div id="cMsgBox" class="small"></div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-lg-12 largeImage">
+                <video preload="none" src="media/abc.mp4" autoplay muted loop playsinline class="video"></video>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="./image/addsImage.png" alt="addsImage" class="addsImage">
+                </div>
+            </div>
+
+
+            <section id="flashSale">
+                <h3>Flash Sale</h3>
+                <div class="border d-none d-lg-block">
+                    <div class="topic">
+                        <p>On Sale Now</p>
+                        <button>SHOP ALL PRODUCT</button>
+                    </div>
+
+                </div>
+                <div class="itemsArea">
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 col-2 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item1.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>MWC EarPods Pro 2 <span class="hideItemText"> | Hi-Res Audio Supported....</span>
+                                    </p>
+                                    <h2>Rs. 396</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item2.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>MWC CALLISTO <span class="hideItemText">Watch Pro 2 | GPS | Ai .....</span> </p>
+                                    <h2>Rs. 7,490</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item3.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>MJ26 Photography <span class="hideItemText">Lighting RGB LED Soft ..</span> </p>
+                                    <h2>Rs. 999</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item4.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Aputure amaran <span class="hideItemText">300c RGB LED Monolight..</span></p>
+                                    <h2>Rs. 86,500</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item5.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Silicon Cover <span class="hideItemText">Compatible For Airpods Pro...</span></p>
+                                    <h2>Rs. 990</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item6.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Sneaker Shoes <span class="hideItemText"> Clean & Fresh Shoes Shining... </span>
+                                    </p>
+                                    <h2>Rs. 500</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item7.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Men's ultralight Running Shoe, Jogging shoe ...</p>
+                                    <h2>Rs. 86,500</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Flash-Sale/item4.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Aputure amaran 300c RGB LED Monolight...</p>
+                                    <h2>Rs. 86,500</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section id="Categories">
+                <h3 class="ps-2">Categories</h3>
+                <div class="itemsArea">
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item1.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Breast Pump ...</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item2.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Car Mounts </p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item3.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Still Water</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item4.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Christening</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item5.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Light Bulbs</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item6.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>smart watch</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item7.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Convertible</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/Categories/item8.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Bathroom</p>
+                                    <button class="addToCard" onclick="buttonClick()">Show All </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="forYou">
+                <h3>Just For You</h3>
+
+                <div class="itemsArea">
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item1.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Pumpkin Seeds - <span class="hideItemText">Super Food - 200 gm....</span></p>
+                                    <h2>Rs. 296</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item2.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Portable Folding <span class="hideItemText">Home Laptop Table Desk ...</span></p>
+                                    <h2>Rs. 990</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item3.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>E88 Pro Dronee <span class="hideItemText">with 4k Camera with ..</span></p>
+                                    <h2>Rs. 899</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item4.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Flying Sensor <span class="hideItemText">Helicopter Toy with ..</span> </p>
+                                    <h2>Rs. 800</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item5.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Flexible Car <span class="hideItemText"> Dashboard Mount Alarm ...</span></p>
+                                    <h2>Rs. 990</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item6.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>1 Layer Electric Egg <span class="hideItemText"> -Boiler/Poacher Cum Food ..
+                                        </span></p>
+                                    <h2>Rs. 654</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item7.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Stylish Men's <span class="hideItemText"> Cashmere Woolen Winter Sweaters...
+                                        </span></p>
+                                    <h2>Rs. 1,500</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item8.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>5000 lumens Bright <span class="hideItemText"> Headlight with... </span></p>
+                                    <h2>Rs. 1,100</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-0 pt-0 pb-0">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item9.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Combo Pack Finger <span class="hideItemText"> Grip & Counter Hand Grip ...</span>
+                                    </p>
+                                    <h2>Rs. 590</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item10.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Vintage T9 Rechar..<span class="hideItemText"> geable Electric Hair Trimmer
+                                            ..</span></p>
+                                    <h2>Rs. 199</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item11.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Speaker 15 inch <span class="hideItemText"> Sound Master 150 Watt ...</span></p>
+                                    <h2>Rs. 3,599</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item1.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>2-in-1 Dual-Ended <span class="hideItemText"> Eyebrow Brush – Precision ...
+                                        </span></p>
+                                    <h2>Rs. 1,100</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-0 pt-0 ">
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item1.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Pumpkin Seeds - <span class="hideItemText"> Super Food - 200 gm....</span></p>
+                                    <h2>Rs. 296</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item2.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Portable Folding <span class="hideItemText"> Home Laptop ...</span></p>
+                                    <h2>Rs. 990</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item3.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>E88 Pro Dronee <span class="hideItemText"> with 4k Camera with ..</span></p>
+                                    <h2>Rs. 899</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-2 col-sm-6 p-lg-4 ">
+                            <div class="productItems  pt-4">
+                                <div class="itemsDiv">
+                                    <img src="./image/forYou/item4.png" alt="items image" loading="lazy"
+                                        class="itemImg">
+                                    <p>Flying Sensor <span class="hideItemText"> Helicopter Toy with ..</span></p>
+                                    <h2>Rs. 800</h2>
+                                    <button class="addToCard" onclick="buttonClick()">Add To Card</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 backToTop  text-center">
+                        <a href="#" class="text-white ">Back To Top</a>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-6 col-lg-3">
+                        <div class="p-3 text-center text-lg-start">
+                            <h5>Help and support</h5>
+                            <ul>
+                                <li>About Us</li>
+                                <li>Delivery Charges</li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="p-3 text-center text-lg-start">
+                            <h5>You Get Helps !</h5>
+                            <ul>
+                                <li>How To Order?</li>
+                                <li>FAQs</li>
+                                <li>Contact Us</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="p-3 text-center text-lg-start">
+                            <h5>Download App</h5>
+                            <ul>
+                                <li>-Appstore</li>
+                                <li>-Playstore</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="p-3 text-center text-lg-start">
+                            <h5>Connect with us!</h5>
+                            <ul>
+                                <li>
+                                    <i class="fa-brands fa-square-facebook"></i>
+                                    <i class="fa-brands fa-instagram"></i>
+                                    <i class="fa-brands fa-blogger-b"></i>
+                                    <i class="fa-brands fa-youtube"></i>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center p-2 mt-5">
+                        &copy; Daraz 2026. All Copyright Are Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- for chatbot -->
+    <button class="chat-btn" onclick="toggleChat()">
+        <i class="fa-solid fa-comment chatbotimg"></i>
+    </button>
+
+
+
+
+
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">Smart Chatbot </div>
+        <div id="chatboxContent">
+            <div class="bot">Hello, How can I help you?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="./js/form.js"></script>
+    <script src="./js/button.js"></script>
+    <script src="./js/chatbot.js"></script>
+</body>
+
+</html>
